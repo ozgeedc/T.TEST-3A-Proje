@@ -13,39 +13,65 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class TestUS09Profilbilgilerinigrntlmesibeklenir():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
-    self.vars = {}
+    self.driver.get("https://tobeto.com/giris")
+    self.driver.maximize_window()
+    #self.vars = {}
   
   def teardown_method(self, method):
     self.driver.quit()
   
-  def wait_for_window(self, timeout = 2):
-    time.sleep(round(timeout / 1000))
-    wh_now = self.driver.window_handles
-    wh_then = self.vars["window_handles"]
-    if len(wh_now) > len(wh_then):
-      return set(wh_now).difference(set(wh_then)).pop()
-  
-  def test_uS9TC1Kaytlprofilbilgilerineulalabilirvegrntlenmesibeklenir(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]").click()
-    self.driver.close()
+   #def wait_for_window(self, timeout = 2):
+    #time.sleep(round(timeout / 1000))
+    #wh_now = self.driver.window_handles
+    #wh_then = self.vars["window_handles"]
+    #if len(wh_now) > len(wh_then):
+    #  return set(wh_now).difference(set(wh_then)).pop()
+
+   # Kullanıcı profil bilgilerinin güncellenmesi ve görüntülenmesi
+  def test_uS9TC1(self):
+   
+    WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys("ozgecam@outlook.com")
+
+    
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password = self.driver.find_element(By.NAME,"password")
+    password.send_keys("ozge-cam-5595") 
+    
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//a[contains(text(),\'Profilim\')]")))
+    ProfilimButon = self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]")
+    ProfilimButon.click()
+
+   
   
   def test_uS9TC2ProfiliPaylaButonununKontrol(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.CSS_SELECTOR, ".btn-primary").click()
-    self.driver.find_element(By.LINK_TEXT, "Profilim").click()
-    self.driver.find_element(By.ID, "dropdown-basic").click()
+
+    WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys("ozgecam@outlook.com")
+
+    
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password = self.driver.find_element(By.NAME,"password")
+    password.send_keys("ozge-cam-5595") 
+    
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//a[contains(text(),\'Profilim\')]")))
+    ProfilimButon = self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]")
+    ProfilimButon.click()
+   
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"dropdown-basic")))
+    profilipaylas = self.driver.find_element(By.ID, "dropdown-basic")
+    profilipaylas.click()
+    
     self.driver.find_element(By.CSS_SELECTOR, ".react-switch-bg").click()
     self.driver.find_element(By.CSS_SELECTOR, ".ms-3").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".toast-body").text == "• Url kopyalandı."
