@@ -20,14 +20,9 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   def teardown_method(self, method):
     self.driver.quit()
   
-   #def wait_for_window(self, timeout = 2):
-    #time.sleep(round(timeout / 1000))
-    #wh_now = self.driver.window_handles
-    #wh_then = self.vars["window_handles"]
-    #if len(wh_now) > len(wh_then):
-    #  return set(wh_now).difference(set(wh_then)).pop()
 
    # Kullanıcı profil bilgilerinin güncellenmesi ve görüntülenmesi
+   
   def test_uS9TC1(self):
    
     WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
@@ -71,7 +66,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"dropdown-basic")))
     profilipaylas = self.driver.find_element(By.ID, "dropdown-basic")
     profilipaylas.click()
-    
+
     self.driver.find_element(By.CSS_SELECTOR, ".react-switch-bg").click()
     self.driver.find_element(By.CSS_SELECTOR, ".ms-3").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".toast-body").text == "• Url kopyalandı."
