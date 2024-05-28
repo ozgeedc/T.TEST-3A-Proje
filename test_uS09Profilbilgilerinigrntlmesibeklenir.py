@@ -60,11 +60,11 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
     self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]").click()
     self.driver.execute_script("window.scrollTo(0,1333.3333740234375)")
-    self.vars["window_handles"] = self.driver.window_handles
+    #self.vars["window_handles"] = self.driver.window_handles
     self.driver.find_element(By.CSS_SELECTOR, ".cursor-pointer:nth-child(1) > .d-flex").click()
-    self.vars["C:\Users\Busraa\Downloads"] = self.wait_for_window(2000)
-    self.vars["root"] = self.driver.current_window_handle
-    self.driver.switch_to.window(${C:\\Users\\Busraa\\Downloads})
+    #self.vars["C:\Users\Busraa\Downloads"] = self.wait_for_window(2000)
+    #self.vars["root"] = self.driver.current_window_handle
+    #self.driver.switch_to.window(${C:\\Users\\Busraa\\Downloads})
     self.driver.close()
   
   def test_uS9TC4SosyalMedyaHesaplarnnGrntlenmesibeklenir(self):
