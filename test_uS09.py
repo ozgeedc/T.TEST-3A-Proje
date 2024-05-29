@@ -124,10 +124,13 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".cv-linkedin")))
+    linkedinbuton = self.driver.find_element(By.CSS_SELECTOR, ".cv-linkedin")
+    linkedinbuton.click()
 
-    self.vars["window_handles"] = self.driver.window_handles
-    self.driver.find_element(By.CSS_SELECTOR, ".cv-linkedin").click()
-    self.vars["https://www.linkedin.com/in/ozgeedc1610/"] = self.wait_for_window(2000)
+    #self.vars["window_handles"] = self.driver.window_handles
+    
+    #self.vars["https://www.linkedin.com/in/ozgeedc1610/"] = self.wait_for_window(2000)
     
   
   def test_uS9TC5teBaarmAnalizRaporuGrntlenmelidir(self):
