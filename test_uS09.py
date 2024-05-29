@@ -97,13 +97,14 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
 
-    self.driver.execute_script("window.scrollTo(0,1333.3333740234375)")
+    self.driver.execute_script("window.scrollTo(0,1000)")
     #self.vars["window_handles"] = self.driver.window_handles
-    self.driver.find_element(By.CSS_SELECTOR, ".cursor-pointer:nth-child(1) > .d-flex").click()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, ".cursor-pointer:nth-child(1) > .d-flex")))
+    self.driver.find_element(By.XPATH, ".cursor-pointer:nth-child(1) > .d-flex").click()
     #self.vars["C:\Users\Busraa\Downloads"] = self.wait_for_window(2000)
     #self.vars["root"] = self.driver.current_window_handle
     #self.driver.switch_to.window(${C:\\Users\\Busraa\\Downloads})
-    self.driver.close()
+    
 
   # Kullanıcı , sosyal medya hesaplarına tıkladığında sosyal medya hesaplarına yönlendirilmeli ve görüntülenmesi beklenir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
