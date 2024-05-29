@@ -107,7 +107,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
 
   # Kullanıcı , sosyal medya hesaplarına tıkladığında sosyal medya hesaplarına yönlendirilmeli ve görüntülenmesi beklenir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
-  def test_uS9TC4SosyalMedyaHesaplarnnGrntlenmesibeklenir(self, email, password):
+  def test_uS9TC4(self, email, password):
     
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
@@ -124,25 +124,35 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
+
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".cv-linkedin")))
     linkedinbuton = self.driver.find_element(By.CSS_SELECTOR, ".cv-linkedin")
     linkedinbuton.click()
+    new_window_url = self.driver.current_url
+    expected_url = "https://www.linkedin.com/in/ozgeedc1610"
+    assert new_window_url == expected_url, "LinkedIn URL'si beklenenden farklı."
 
-    #self.vars["window_handles"] = self.driver.window_handles
+  # İşte Başarım , Analiz Raporu Görüntülenmelidir.
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
+  def test_uS9TC5(self, email, password):
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
     
-    #self.vars["https://www.linkedin.com/in/ozgeedc1610/"] = self.wait_for_window(2000)
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
     
-  
-  def test_uS9TC5teBaarmAnalizRaporuGrntlenmelidir(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1536, 835)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]").click()
-    self.driver.execute_script("window.scrollTo(0,248)")
-    self.driver.find_element(By.XPATH, "//canvas").click()
-    self.driver.close()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
+    login_button.click()
+
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
+    profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
+    profil_button.click()
+    self.driver.execute_script("window.scrollTo(0,300)")
+
+    assert EC.visibility_of_element_located((By.XPATH, "//span[contains(.,'Tobeto İşte Başarı Modelim')]"))
+    #Sayfada Tobeto İşte Başarı Modelim alanı görünüyor mu görünmüyor mu diye kontrol eder .
+    
   
