@@ -39,7 +39,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     ProfilimButon = self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]")
     ProfilimButon.click()
 
-   # Kullanıcı , Tobeto sitesinden Profil bilgilerini paylaşabilmelidir.
+   # Kullanıcı , Tobeto sitesinden Profil bilgilerini paylaşabilmelidir. URL Kopyalandı bilgisi alması beklenir.
 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC2(self, email, password):
@@ -59,32 +59,44 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
    
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"dropdown-basic")))
-    profilipaylas = self.driver.find_element(By.XPATH, "dropdown-basic")
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@id='dropdown-basic']")))
+    profilipaylas = self.driver.find_element(By.XPATH, "//button[@id='dropdown-basic']")
     profilipaylas.click()
 
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,".react-switch-bg")))
-    switch = self.driver.find_element(By.XPATH, ".react-switch-bg")
-    if "off" in switch.get_attribute("class"):
-        print("Switch turned ON")
-    else:
-        print("Switch is already ON")
-
-    switch.click()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,".react-switch-bg")))
+    switch = self.driver.find_element(By.CSS_SELECTOR, ".react-switch-bg")
     
-    self.driver.find_element(By.CSS_SELECTOR, ".ms-3").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, ".toast-body").text == "• Url kopyalandı."
+    switch.click()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,".ms-3")))
+    copybuton = self.driver.find_element(By.CSS_SELECTOR, ".ms-3")
+    copybuton.click()
+    expected_message = "• Url kopyalandı." #Beklenen hata sonucu
+    actual_message = self.driver.find_element(By.CSS_SELECTOR, ".toast-body").text#Hata sonucunu içerisine alır
+    assert expected_message == actual_message, f"Expected: {expected_message}, Actual: {actual_message}" #Çıkan sonuçları karşılaştırı
+    testResult = expected_message=="• Url kopyalandı."
+    print(f"TEST SONUCU: {testResult}")
+   
 
-  
-  def test_uS9TC3SertifikaKontrolveDosyannindirilmesibeklenir(self):
+  # Kullanıcı , Profilim alanından sertifikalarını indirebilmelidir.
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
+  def test_uS9TC3SertifikaKontrolveDosyannindirilmesibeklenir(self, email, password):
     self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]").click()
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+    
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
+    login_button.click()
+
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
+    profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
+    profil_button.click()
+
     self.driver.execute_script("window.scrollTo(0,1333.3333740234375)")
     #self.vars["window_handles"] = self.driver.window_handles
     self.driver.find_element(By.CSS_SELECTOR, ".cursor-pointer:nth-child(1) > .d-flex").click()
@@ -92,20 +104,31 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     #self.vars["root"] = self.driver.current_window_handle
     #self.driver.switch_to.window(${C:\\Users\\Busraa\\Downloads})
     self.driver.close()
-  
-  def test_uS9TC4SosyalMedyaHesaplarnnGrntlenmesibeklenir(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1536, 835)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profilim\')]").click()
+
+  # Kullanıcı , sosyal medya hesaplarına tıkladığında sosyal medya hesaplarına yönlendirilmeli ve görüntülenmesi beklenir.
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
+  def test_uS9TC4SosyalMedyaHesaplarnnGrntlenmesibeklenir(self, email, password):
+    
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+    
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
+    login_button.click()
+
+    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
+    profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
+    profil_button.click()
+
     self.vars["window_handles"] = self.driver.window_handles
     self.driver.find_element(By.CSS_SELECTOR, ".cv-linkedin").click()
     self.vars["https://www.linkedin.com/in/ozgeedc1610/"] = self.wait_for_window(2000)
-    self.driver.close()
+    
   
   def test_uS9TC5teBaarmAnalizRaporuGrntlenmelidir(self):
     self.driver.get("https://tobeto.com/giris")
