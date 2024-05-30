@@ -21,7 +21,7 @@ class TestUS10Kullancdeerlendirmealan():
   def teardown_method(self, method):
     self.driver.quit()
 
-  #Kullanıcı , değerlendirmeler sayfasını görüntüleyebilmelidir.
+  #Kullanıcı , değerlendirmeler sayfasını görüntüleyebilmelidir. OK
 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS10TC1(self,email, password,):
@@ -47,7 +47,7 @@ class TestUS10Kullancdeerlendirmealan():
 
 
 
-    # Kullanıcı Değerlendirmeler alanından , kişisel analiz raporlarını görüntüleyebilmesi beklenir.
+    # Kullanıcı Değerlendirmeler alanından , kişisel analiz raporlarını görüntüleyebilmesi beklenir. OK
 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS10TC2(self, email, password):
@@ -74,7 +74,7 @@ class TestUS10Kullancdeerlendirmealan():
     expected_url = "https://tobeto.com/profilim/degerlendirmeler/rapor/tobeto-iste-basari-modeli/1"
     assert new_url == expected_url, "Sayfa görüntülenemedi."
 
-    #Çoktan seçemeli test raporlarının görüntülenmesi beklenir.
+    #Çoktan seçemeli test raporlarının görüntülenmesi beklenir. BU KISIM HATA VERMEKTEDİR.
    
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS10TC3oktanSemeliTestlerinRaporGrntlenmesi(self, email, password):
