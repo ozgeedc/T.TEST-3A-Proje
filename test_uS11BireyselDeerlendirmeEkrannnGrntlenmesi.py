@@ -30,8 +30,8 @@ class TestUS11BireyselDeerlendirmeEkrannnGrntlenmesi():
     self.driver.execute_script("window.scrollTo(0,0)")
     self.driver.find_element(By.XPATH, "//a[contains(text(),\'Raporu Görüntüle\')]").click()
     self.driver.close()
-  
-  def test_uS11UC21YetkinliklerinneminiAnlatanAltBalklarnGrntlenmesivebalklarnalmasbeklenir(self):
+  #Analiz raporunda bulunan yetkinlik özniteliklerinin alt butonla açılması 
+  def test_uS11UC2_1(self):
     self.driver.get("https://tobeto.com/giris")
     self.driver.set_window_size(1552, 849)
     self.driver.find_element(By.NAME, "email").click()

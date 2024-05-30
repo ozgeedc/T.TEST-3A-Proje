@@ -93,8 +93,10 @@ class TestUS10Kullancdeerlendirmealan():
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//a[contains(text(),\'Değerlendirmeler\')]")))
     degerlendirme = self.driver.find_element(By.XPATH, "//a[contains(text(),\'Değerlendirmeler\')]")
     degerlendirme.click()
+
     self.driver.execute_script("window.scrollTo(0,210)")
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//button[contains(.,'Raporu Görüntüle')]")))
+
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "//button[contains(.,'Raporu Görüntüle')]")))
     buton = self.driver.find_element(By.XPATH, "//button[contains(.,'Raporu Görüntüle')]")   #HATA vermektedir.
     buton.click()
 

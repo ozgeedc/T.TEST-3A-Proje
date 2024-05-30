@@ -25,7 +25,6 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
-
     
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
@@ -76,7 +75,6 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     testResult = expected_message=="• Url kopyalandı."
     print(f"TEST SONUCU: {testResult}")
    
-
   # Kullanıcı , Profilim alanından sertifikalarını indirebilmelidir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC3SertifikaKontrolveDosyannindirilmesibeklenir(self, email, password):
@@ -97,7 +95,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
 
-    self.driver.execute_script("window.scrollTo(0,1000)")
+    self.driver.execute_script("window.scrollTo(0,1000)") # Ekran görüntüsü ekle .. 
     #self.vars["window_handles"] = self.driver.window_handles
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, ".cursor-pointer:nth-child(1) > .d-flex")))
     self.driver.find_element(By.XPATH, ".cursor-pointer:nth-child(1) > .d-flex").click()
@@ -132,6 +130,8 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     new_window_url = self.driver.current_url
     expected_url = "https://www.linkedin.com/in/ozgeedc1610"
     assert new_window_url == expected_url, "LinkedIn URL'si beklenenden farklı."
+
+    
 
   # İşte Başarım , Analiz Raporu Görüntülenmelidir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
