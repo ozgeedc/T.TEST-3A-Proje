@@ -124,21 +124,31 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     yetkinlik = self.driver.find_element(By.XPATH, "//span[contains(.,\'Yetkinliklerim\')]")
     yetkinlik.click()
     
+    #Sertifikaları düzenleme alanının görüntülenmesi.
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
+  def test_uS12TC5(self,email,password,):
   
-  def test_uS12TC5Sertifikalarmbalnnolduualannnalmas(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Sertifikalarım\')]").click()
-    self.driver.find_element(By.XPATH, "//div[@id=\'__next\']/div/main/section/div/div/div[2]").click()
+    WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+
+    WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,500)")
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+    sleep(20)
+    WebDriverWait(self.driver,15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]")))
+    sertifika = self.driver.find_element(By.XPATH, "//span[contains(.,\'Sertifikalarım\')]")
+    sertifika.click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-text").text == "Sertifikalarım"
-    self.driver.close()
+    
   
   def test_uS12TC6MedyaHesaplarmbalnnolduualannnalmas(self):
     self.driver.get("https://tobeto.com/giris")

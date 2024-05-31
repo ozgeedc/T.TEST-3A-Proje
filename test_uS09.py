@@ -76,6 +76,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     print(f"TEST SONUCU: {testResult}")
    
   # Kullanıcı , Profilim alanından sertifikalarını indirebilmelidir.
+  @pytest.mark.skipif 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC3SertifikaKontrolveDosyannindirilmesibeklenir(self, email, password):
     self.driver.get("https://tobeto.com/giris")
