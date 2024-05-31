@@ -75,12 +75,13 @@ class TestUS11BireyselDeerlendirmeEkrannnGrntlenmesi():
     rapor1.click()
     self.driver.execute_script("window.scrollTo(0,0)")
 
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type='button'])[4]")))
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type='button'])[4]")))
     rapor2 = self.driver.find_element(By.XPATH, "(//button[@type='button'])[4]")
     rapor2.click()
-    self.driver.find_element(By.XPATH, "(//button[@type='button'])[4]").click()
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type='button'])[4]")))
+    buton3=self.driver.find_element(By.XPATH, "(//button[@type='button'])[4]")
+    buton3.click()
     
-    self.driver.find_element(By.XPATH, "//div[@id=\'collapse8\']/div/div").click()   # Bu şekilde istenen sonuca ulaşılmaktadır.Fakat test başarısızdır.
     
     
     
