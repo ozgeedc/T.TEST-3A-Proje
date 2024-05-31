@@ -86,7 +86,9 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     self.driver.execute_script("window.scrollTo(0,500)")
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Eğitim Hayatım\')]").click()
+    WebDriverWait(self.driver,10).until(EC.visibilitiy_of_element_located((By.NAME,"//span[contains(.,\'Eğitim Hayatım\')]")))
+    egitim = self.driver.find_element(By.NAME, "//span[contains(.,\'Eğitim Hayatım\')]")
+    egitim.click()
 
   
 
@@ -96,20 +98,32 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
 
 
 
+  #Yetkinliklerim alanının görüntülenmesi
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
+  def test_uS12TC4(self,email,password):
+    WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
 
-  def test_uS12TC4Yetkinliklerimbalnnolduualannnalmas(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.XPATH, "(//button[@type=\'button\'])[4]").click()
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Yetkinliklerim\')]").click()
-    self.driver.close()
+    WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+    #sleep(15)
+    
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,500)")
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+
+    sleep(10)
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yetkinliklerim\')]")))
+    yetkinlik = self.driver.find_element(By.XPATH, "//span[contains(.,\'Yetkinliklerim\')]")
+    yetkinlik.click()
+    
   
   def test_uS12TC5Sertifikalarmbalnnolduualannnalmas(self):
     self.driver.get("https://tobeto.com/giris")
