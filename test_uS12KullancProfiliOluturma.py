@@ -24,36 +24,26 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   # Kullanıcı , profil bilgilerini düzenleyebileceği alanı görüntülemesi beklenir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])  
   def test_uS12TC1(self, email: Literal['ozgecam@outlook.com'], password: Literal['ozge-cam-5595']):
+
     WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
-
-    
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
-    
-    WebDriverWait(self.driver, -7).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-
-    sleep(25)
-
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "btn.p-0.fw-normal.b-r-35.text-end.d-flex.align-items-center")))
-
-    # Eleman çakışması sorun oluşturuyorsa, JavaScript kullanarak butona tıklayın
-    buton = self.driver.find_element(By.CLASS_NAME, "btn.p-0.fw-normal.b-r-35.text-end.d-flex.align-items-center")
-    self.driver.execute_script("arguments[0].click();", buton)
-   
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "span:nth-child(3) > svg")))
-    kbilgilerbuton=self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg")
-    kbilgilerbuton.click()
-    #Sayfanın görüntülenip görüntülenmediğini Link ile doğrulanmıyor , içerisinde ki yazılarla assert text yapılamıyor.
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,400)")
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+    #kişisel bilgilerim düzenleme alanı direk açıldığından sayfanın açılması ile ilgili assert eklenicektir.
    
     
     
    #Kullanıcının , Deneyimlerini düzenleyebileceği alanın görüntülenmesi beklenir. OK
-   #Giriş yap ekranlarında 2 adet başarılı giriş yapılmıştır bildirimi alınmaktadır. Bu bildirimin sonucunda ise Kod hata vermektedir
+   
 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
   def test_uS12TC2(self, email: Literal['ozgecam@outlook.com'], password: Literal['ozge-cam-5595']):
@@ -61,43 +51,24 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
-
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
-    
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-    sleep(15)
-
-    #BAŞARILI GİRİŞ YAPILMIŞTIR BUTONUN ÜZERİNE GELMEKTEDİR. BİLDİRİM 2 KEZ ÇIKMAKTADIR. CANLIDA BUTON HIZLICA KAYBOLMAKTADIR. 
-
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type='button'])[4]")))
-    close1=self.driver.find_element(By.XPATH,"(//button[@type='button'])[4]")
-    close1.click()
-    
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME,"btn.p-0.fw-normal.b-r-35.text-end.d-flex.align-items-center")))
-    sleep(5)
-    profilbuton = self.driver.find_element(expected_conditions.CLASS_NAME,"btn.p-0.fw-normal.b-r-35.text-end.d-flex.align-items-center")
-    profilbuton.click()
-
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//a[contains(text(),'Profil Bilgileri')]")))
-    profilbuton1 = self.driver.find_element(expected_conditions.XPATH, "//a[contains(text(),'Profil Bilgileri')]")
-    profilbuton1.click()
-
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "span:nth-child(3) > svg")))
-    kbilgilerbuton=self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg")
-    kbilgilerbuton.click()
-
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Deneyimlerim\')]")))
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,400)")
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Deneyimlerim\')]")))
     deneyimb = self.driver.find_element(By.XPATH, "//span[contains(.,\'Deneyimlerim\')]")
     deneyimb.click()
-    #assert EC.visibility_of_element_located((By.XPATH, "//span[contains(.,\'Deneyimlerim\')]"))
+    #assert expected_conditions.visibility_of_element_located((By.XPATH, "//span[contains(.,\'Deneyimlerim\')]")) #doğrulama eklenecektir.
     
-  # 
+  # Eğitim Hayatım alanının görüntülenmesi 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
-  def test_uS12TC3EitimHayatmbalnnolduualannnalmas(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
+  def test_uS12TC3(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
     WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
@@ -110,21 +81,13 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
     #sleep(15)
-    # sayfayı bu kısımdan sonra istemsizce kaydırmaktadır.
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type='button'])[4]")))
-    close1=self.driver.find_element(By.XPATH,"(//button[@type='button'])[4]")
-    close1.click()
-
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"(//button[@type=\'button\'])[4]")))
-    p_buton = self.driver.find_element(By.XPATH,"(//button[@type=\'button\'])[4]")
-    sleep(15)
-    p_buton.click()
-
-    self.driver.find_element(By.XPATH, "(//button[@type=\'button\'])[4]").click()
-    self.driver.find_element(By.XPATH, "//div[@id=\'__next\']/div/nav/div/div/div/div[2]/button/div[2]/p").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
+    
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,500)")
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
     self.driver.find_element(By.XPATH, "//span[contains(.,\'Eğitim Hayatım\')]").click()
-    self.driver.close()
+
   
 
 
