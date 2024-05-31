@@ -22,15 +22,15 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC1(self, email, password):
    
-    WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    WebDriverWait(self.driver,2).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
     
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    WebDriverWait(self.driver,2).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
     
-    WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    WebDriverWait(self.driver,2).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
 
@@ -42,19 +42,19 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC2(self, email, password):
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
     login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
     login_button.click()
 
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
+    WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Profilim')]")))
     profil_button = self.driver.find_element(By.XPATH, "//a[contains(text(),'Profilim')]")
     profil_button.click()
    
@@ -78,8 +78,8 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   # Kullanıcı , Profilim alanından sertifikalarını indirebilmelidir.
   @pytest.mark.skipif 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
-  def test_uS9TC3SertifikaKontrolveDosyannindirilmesibeklenir(self, email, password):
-    self.driver.get("https://tobeto.com/giris")
+  def test_uS9TC3(self, email, password):
+    
     WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
@@ -109,15 +109,15 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
   def test_uS9TC4(self, email, password):
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
     login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
     login_button.click()
 
@@ -137,15 +137,15 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
   # İşte Başarım , Analiz Raporu Görüntülenmelidir.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
   def test_uS9TC5(self, email, password):
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"email")))
+    WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,"password")))
+    WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
     
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
+    WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.XPATH,"//button[@type='submit']")))
     login_button = self.driver.find_element(By.XPATH,"//button[@type='submit']")
     login_button.click()
 
