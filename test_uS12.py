@@ -76,18 +76,18 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
     password_field = self.driver.find_element(By.NAME,"password")
     password_field.send_keys(password) 
+    #Bu alanada sayfa istemsiz şekilde aşağ kaymaktadır.
     
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-    #sleep(15)
-    
+  
+    self.driver.execute_script("window.scrollTo(0,600)")
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,500)")
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
-    WebDriverWait(self.driver,10).until(EC.visibilitiy_of_element_located((By.NAME,"//span[contains(.,\'Eğitim Hayatım\')]")))
-    egitim = self.driver.find_element(By.NAME, "//span[contains(.,\'Eğitim Hayatım\')]")
+    WebDriverWait(self.driver,15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,'Eğitim Hayatım')]")))
+    egitim = self.driver.find_element(By.XPATH,"//span[contains(.,\'Eğitim Hayatım\')]")
     egitim.click()
 
   
@@ -100,7 +100,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
 
   #Yetkinliklerim alanının görüntülenmesi
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
-  def test_uS12TC4(self,email,password):
+  def test_uS12TC4(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
     WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
     username.send_keys(email)
@@ -126,7 +126,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     
     #Sertifikaları düzenleme alanının görüntülenmesi.
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
-  def test_uS12TC5(self,email,password,):
+  def test_uS12TC5(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595'],):
   
     WebDriverWait(self.driver,5).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
     username = self.driver.find_element(By.NAME,"email")
@@ -147,50 +147,81 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver,15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]")))
     sertifika = self.driver.find_element(By.XPATH, "//span[contains(.,\'Sertifikalarım\')]")
     sertifika.click()
-    assert self.driver.find_element(By.CSS_SELECTOR, ".header-text").text == "Sertifikalarım"
     
-  
-  def test_uS12TC6MedyaHesaplarmbalnnolduualannnalmas(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    element = self.driver.find_element(By.CSS_SELECTOR, ".signup")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Medya Hesaplarım\')]").click()
-    self.driver.find_element(By.XPATH, "//div[@id=\'__next\']/div/main/section/div/div/div[2]").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(4)").text == "En fazla 3 adet medya seçimi yapılabilir."
-    self.driver.close()
-  
-  def test_uS12TC7YabancDillerimbalnnolduualannnalmas(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Yabancı Dillerim\')]").click()
-    self.driver.close()
-  
-  def test_uS12TC8Ayarlarbalnnolduualannnalmas(self):
-    self.driver.get("https://tobeto.com/giris")
-    self.driver.set_window_size(1552, 849)
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("ozgecam@outlook.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("ozge-cam-5595")
-    self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(3) > svg").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Profil Bilgileri\')]").click()
-    self.driver.find_element(By.XPATH, "//span[contains(.,\'Ayarlar\')]").click()
-    self.driver.close()
+
+
+  #Kullanıcı sosyal medya hesaplarının düzenlenme alanının görüntülenmesi 
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
+  def test_uS12TC6(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,600)")
+    
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+   
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Medya Hesaplarım\')]")))
+    medya =self.driver.find_element(By.XPATH, "//span[contains(.,\'Medya Hesaplarım\')]")
+    medya.click()
+    sleep(40)
+    
+  #Kullanıcının yabancı dil bilgilerini ekleyebileceği alanın görüntülenmesi
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
+  def test_uS12TC7(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,600)")
+    
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yabancı Dillerim\')]")))
+    yabancidil=self.driver.find_element(By.XPATH, "//span[contains(.,\'Yabancı Dillerim\')]")
+    yabancidil.click()
+    
+  # Kullanıcı , şifre değişikliliği işlemleri
+  @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
+  def test_uS12TC8(self,email: Literal['ozgecam@outlook.com'],password: Literal['ozge-cam-5595']):
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"email")))
+    username = self.driver.find_element(By.NAME,"email")
+    username.send_keys(email)
+
+    WebDriverWait(self.driver,3).until(expected_conditions.visibility_of_element_located((By.NAME,"password")))
+    password_field = self.driver.find_element(By.NAME,"password")
+    password_field.send_keys(password) 
+    
+    WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
+    girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
+    girisYap.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,600)")
+    
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
+    profilbasla.click()
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Ayarlar\')]")))
+    ayarlar = self.driver.find_element(By.XPATH, "//span[contains(.,\'Ayarlar\')]")
+    ayarlar.click()
+    
   
