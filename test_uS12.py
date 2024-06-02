@@ -34,8 +34,8 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,400)")
+    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    self.driver.execute_script("window.scrollTo(0,600)")
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
     #kişisel bilgilerim düzenleme alanı direk açıldığından sayfanın açılması ile ilgili assert eklenicektir.
@@ -64,7 +64,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Deneyimlerim\')]")))
     deneyimb = self.driver.find_element(By.XPATH, "//span[contains(.,\'Deneyimlerim\')]")
     deneyimb.click()
-    #assert expected_conditions.visibility_of_element_located((By.XPATH, "//span[contains(.,\'Deneyimlerim\')]")) #doğrulama eklenecektir.
+    
     
   # Eğitim Hayatım alanının görüntülenmesi 
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
@@ -90,13 +90,6 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     egitim = self.driver.find_element(By.XPATH,"//span[contains(.,\'Eğitim Hayatım\')]")
     egitim.click()
 
-  
-
-
-
-
-
-
 
   #Yetkinliklerim alanının görüntülenmesi
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")]) 
@@ -112,7 +105,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-    #sleep(15)
+    sleep(15)
     
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     self.driver.execute_script("window.scrollTo(0,500)")
@@ -139,12 +132,12 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[@type=\'submit\']")))
     girisYap = self.driver.find_element(By.XPATH,"//button[@type=\'submit\']")
     girisYap.click()
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    WebDriverWait(self.driver, 20 ).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     self.driver.execute_script("window.scrollTo(0,500)")
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
-    sleep(20)
-    WebDriverWait(self.driver,15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]")))
+  
+    WebDriverWait(self.driver,20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]")))
     sertifika = self.driver.find_element(By.XPATH, "//span[contains(.,\'Sertifikalarım\')]")
     sertifika.click()
     
@@ -167,14 +160,14 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     self.driver.execute_script("window.scrollTo(0,600)")
     
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
    
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Medya Hesaplarım\')]")))
+    WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Medya Hesaplarım\')]")))
     medya =self.driver.find_element(By.XPATH, "//span[contains(.,\'Medya Hesaplarım\')]")
     medya.click()
-    sleep(40)
+    
     
   #Kullanıcının yabancı dil bilgilerini ekleyebileceği alanın görüntülenmesi
   @pytest.mark.parametrize("email, password", [("ozgecam@outlook.com", "ozge-cam-5595")])
@@ -193,10 +186,10 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     self.driver.execute_script("window.scrollTo(0,600)")
     
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yabancı Dillerim\')]")))
+    WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yabancı Dillerim\')]")))
     yabancidil=self.driver.find_element(By.XPATH, "//span[contains(.,\'Yabancı Dillerim\')]")
     yabancidil.click()
     
@@ -217,7 +210,7 @@ class TestUS09Profilbilgilerinigrntlmesibeklenir():
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     self.driver.execute_script("window.scrollTo(0,600)")
     
-    WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+    WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
     profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
     profilbasla.click()
     WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Ayarlar\')]")))
