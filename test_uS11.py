@@ -40,7 +40,7 @@ class TestUS11():
 
     # Analiz raporunda bulunan yetkinlik özniteliklerinin alt butonla açılması 
     @pytest.mark.parametrize("email, password", [(EMAIL,PASSWORD)]) 
-    def test_US11_UC2_1(self, email, password):
+    def test_US11_TC2_1(self, email, password):
         self.login(email, password)
         self.raporlar()
        
