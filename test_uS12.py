@@ -7,143 +7,104 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 #Senaryo , profil düzenleme(başla) sayfasında gerçekleşmektedir.
 class TestUS12():
-  BASE_URL = "https://tobeto.com/giris"
-  EMAİL ="ozgecam@outlook.com"
-  PASSWORD ="ozge-cam-5595"
-  WAIT_TİME = 10
+    BASE_URL = "https://tobeto.com/giris"
+    EMAİL ="ozgecam@outlook.com"
+    PASSWORD ="ozge-cam-5595"
+    DK = 20
 
-  def setup_method(self,method):
-    self.driver = webdriver.Chrome()
-    self.driver.get(self.BASE_URL)
-    self.driver.maximize_window()
+    def setup_method(self,method):
+        self.driver = webdriver.Chrome()
+        self.driver.get(self.BASE_URL)
+        self.driver.maximize_window()
     
   
-  def teardown_method(self,method):
-    self.driver.quit()
+    def teardown_method(self,method):
+        
+        self.driver.quit()
 
-  def login(self, email, password):
-        WebDriverWait(self.driver, self.WAIT_TİME).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
-        WebDriverWait(self.driver, self.WAIT_TİME).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-        WebDriverWait(self.driver, self.WAIT_TİME).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()  
-
-
-
-  # Kullanıcı , profil bilgilerini düzenleyebileceği alanı görüntülemesi beklenir.
-  @pytest.mark.parametrize("email, password", [(EMAİL , PASSWORD)])  
-  def test_uS12TC1(self, email, password ):
-    self.login(email,password)
-    WebDriverWait(self.driver,self.WAIT_TİME).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,400)")
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-    #kişisel bilgilerim düzenleme alanı direk açıldığından sayfanın açılması ile ilgili assert eklenicektir.
-   
-    
+    def login(self, email, password):
+        WebDriverWait(self.driver, self.DK).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
+        WebDriverWait(self.driver, self.DK).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+        WebDriverWait(self.driver, self.DK).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()  
 
 
-    
-  #Kullanıcının , Deneyimlerini düzenleyebileceği alanın görüntülenmesi beklenir. OK
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
-  def test_uS12TC2(self, email, password):
-    self.login(email,password)
 
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,400)")
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-    WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Deneyimlerim\')]")))
-    deneyimb = self.driver.find_element(By.XPATH, "//span[contains(.,\'Deneyimlerim\')]")
-    deneyimb.click()
-    
-    
-  # Eğitim Hayatım alanının görüntülenmesi 
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
-  def test_uS12TC3(self, email, password):
-    self.login(email,password)
+    # > Kullanıcı , profil bilgilerini düzenleyebileceği alanı görüntülemesi beklenir. OK
+    @pytest.mark.parametrize("email, password", [(EMAİL , PASSWORD)])  
+    def test_uS12TC1(self, email, password ):
+        self.login(email,password)
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+        self.driver.execute_script("window.scrollTo(0,600)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+       
+         
+     
+    # Kullanıcının , Deneyimlerini düzenleyebileceği alanın görüntülenmesi beklenir. OK
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
+    def test_uS12TC2(self, email, password):
+        self.login(email,password)
+        self.driver.execute_script("window.scrollTo(0,600)")
 
-    self.driver.execute_script("window.scrollTo(0,600)")
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-    WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,'Eğitim Hayatım')]")))
-    egitim = self.driver.find_element(By.XPATH,"//span[contains(.,\'Eğitim Hayatım\')]")
-    egitim.click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Deneyimlerim\')]"))).click()
+      
+      
+    # Eğitim Hayatım alanının görüntülenmesi 
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
+    def test_uS12TC3(self, email, password):
+        self.login(email,password)
 
-
-  #Yetkinliklerim alanının görüntülenmesi
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
-  def test_uS12TC4(self, email, password):
-    self.login(email,password)
-   
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,500)")
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-
-    
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yetkinliklerim\')]")))
-    yetkinlik = self.driver.find_element(By.XPATH, "//span[contains(.,\'Yetkinliklerim\')]")
-    yetkinlik.click()
-    
-    #Sertifikaları düzenleme alanının görüntülenmesi.
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
-  def test_uS12TC5(self,email,password):
-    self.login(email,password)
-  
-    WebDriverWait(self.driver, 20 ).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,500)")
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-  
-    WebDriverWait(self.driver,20).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]")))
-    sertifika = self.driver.find_element(By.XPATH, "//span[contains(.,\'Sertifikalarım\')]")
-    sertifika.click()
-    
+        self.driver.execute_script("window.scrollTo(0,600)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,'Eğitim Hayatım')]"))).click()
 
 
-  #Kullanıcı sosyal medya hesaplarının düzenlenme alanının görüntülenmesi 
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
-  def test_uS12TC6(self,email,password):
-    self.login(email,password)
-    
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,600)")
-    
-    WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-   
-    WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Medya Hesaplarım\')]")))
-    medya =self.driver.find_element(By.XPATH, "//span[contains(.,\'Medya Hesaplarım\')]")
-    medya.click()
-    
-    
-  #Kullanıcının yabancı dil bilgilerini ekleyebileceği alanın görüntülenmesi
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
-  def test_uS12TC7(self,email,password):
-    self.login(email,password)
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,600)")
-    
-    WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-    WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yabancı Dillerim\')]")))
-    yabancidil=self.driver.find_element(By.XPATH, "//span[contains(.,\'Yabancı Dillerim\')]")
-    yabancidil.click()
-    
-  # Kullanıcı , şifre değişikliliği işlemleri
-  @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
-  def test_uS12TC8(self,email,password):
-    self.login(self,password)
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    self.driver.execute_script("window.scrollTo(0,600)")
-    
-    WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
-    profilbasla = self.driver.find_element(By.XPATH,"//button[contains(.,'Başla')]")
-    profilbasla.click()
-    WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Ayarlar\')]")))
-    ayarlar = self.driver.find_element(By.XPATH, "//span[contains(.,\'Ayarlar\')]")
-    ayarlar.click()
-    
-  
+    #> Yetkinliklerim alanının görüntülenmesi
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
+    def test_uS12TC4(self, email, password):
+        self.login(email,password)
+        self.driver.execute_script("window.scrollTo(0,500)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yetkinliklerim\')]"))).click()
+        
+
+    #> Sertifikaları düzenleme alanının görüntülenmesi.
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
+    def test_uS12TC5(self,email,password):
+        self.login(email,password)
+        self.driver.execute_script("window.scrollTo(0,600)")
+      
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Sertifikalarım\')]"))).click()
+        
+
+
+    #> Kullanıcı sosyal medya hesaplarının düzenlenme alanının görüntülenmesi 
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)]) 
+    def test_uS12TC6(self,email,password):
+        self.login(email,password)
+        self.driver.execute_script("window.scrollTo(0,600)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Medya Hesaplarım\')]"))).click()
+      
+      
+    #> Kullanıcının yabancı dil bilgilerini ekleyebileceği alanın görüntülenmesi
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
+    def test_uS12TC7(self,email,password):
+        self.login(email,password)
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+        self.driver.execute_script("window.scrollTo(0,600)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Yabancı Dillerim\')]"))).click()
+        
+    #> Kullanıcı , şifre değişikliliği işlemleri
+    @pytest.mark.parametrize("email, password", [(EMAİL,PASSWORD)])
+    def test_uS12TC8(self,email,password):
+        self.login(email,password)
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]")))
+        self.driver.execute_script("window.scrollTo(0,600)")
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//button[contains(.,'Başla')]"))).click()
+        WebDriverWait(self.driver,self.DK).until(EC.visibility_of_element_located((By.XPATH,"//span[contains(.,\'Ayarlar\')]"))).click()
+        
+      
