@@ -1,7 +1,9 @@
+import pytest
 import requests
 import json
 
 #Kullanıcı, kaydı yapılır.
+#@pytest.mark.skip
 class Test_api_post():
   def test_api_post(self):
     url = "http://localhost:60805/api/Auth/Register"
