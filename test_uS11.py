@@ -10,7 +10,7 @@ class TestUS11():
     BASE_URL = "https://tobeto.com/giris"
     EMAIL = "ozgecam@outlook.com"
     PASSWORD = "ozge-cam-5595"
-    WAIT_TIME = 20
+    SECOND = 20
 
     def setup_method(self, method):
         self.driver = webdriver.Chrome()
@@ -22,14 +22,14 @@ class TestUS11():
 
     def login(self, email, password):
         # Giriş ekranı alanına gitme methodu.
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Değerlendirmeler')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
+        WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Değerlendirmeler')]"))).click()
 
     def raporlar(self):
         # Bu testler değerlendirmeler alanında rapor görüntüleme işlemi gerçekleşmektedir.
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'Raporu Görüntüle')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'Raporu Görüntüle')]"))).click()
 
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)]) 
     def test_US11_TC1(self, email, password):
@@ -45,7 +45,7 @@ class TestUS11():
         self.raporlar()
        
         self.driver.execute_script("window.scrollTo(0,400)")
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH,"(//button[@type='button'])[4]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH,"(//button[@type='button'])[4]"))).click()
         """ assert edilememektedir araştırılıyor."""
         
        
