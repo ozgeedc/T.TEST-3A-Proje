@@ -23,6 +23,18 @@ class TestUS10KullaniciDegerlendirmeAlan:
         # Giriş ekranı alanına gidiş methodu.
         WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
         WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+         # reCAPTCHA doğrulaması
+        # reCAPTCHA çerçevesinin içine geçiş yapılır
+        iframe = WebDriverWait(self.driver, self.SECOND).until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe[src^='https://www.google.com/recaptcha']")))
+        self.driver.switch_to.frame(iframe)
+
+        # reCAPTCHA onay kutusunu tıklama
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".recaptcha-checkbox-border"))).click()
+
+        # Ana çerçeveye geri dönme
+        self.driver.switch_to.default_content()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
+
         WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
 
     def degerlendirmeler(self):

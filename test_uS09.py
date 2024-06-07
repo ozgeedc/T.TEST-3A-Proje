@@ -24,13 +24,25 @@ class TestUS09():
     def login(self, email, password):
         WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
         WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+        
+        
+        # reCAPTCHA doğrulaması
+        # reCAPTCHA çerçevesinin içine geçiş yapılır
+        iframe = WebDriverWait(self.driver, self.SECOND).until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe[src^='https://www.google.com/recaptcha']")))
+        self.driver.switch_to.frame(iframe)
+
+        # reCAPTCHA onay kutusunu tıklama
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".recaptcha-checkbox-border"))).click()
+
+        # Ana çerçeveye geri dönme
+        self.driver.switch_to.default_content()
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
 
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)])
     def test_uS9TC1(self, email, password):
         #Kullanıcı profil bilgilerinin güncellenmesi ve görüntülenmesi
         self.login(email, password)
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Profilim')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Profilim')]"))).click()
 
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)])
     def test_uS9TC2(self, email, password):
@@ -40,9 +52,10 @@ class TestUS09():
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@id='dropdown-basic']"))).click()
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".react-switch-bg"))).click()
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ms-3"))).click()
+
         
         expected_message = "• Url kopyalandı."
-        actual_message = WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".toast-body"))).text
+        actual_message = WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".toast-body"))).text
         assert expected_message == actual_message, f"Expected: {expected_message}, Actual: {actual_message}"
         print(f"TEST SONUCU: {expected_message == actual_message}")
 
