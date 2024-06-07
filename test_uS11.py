@@ -30,6 +30,7 @@ class TestUS11():
     def raporlar(self):
         # Bu testler değerlendirmeler alanında rapor görüntüleme işlemi gerçekleşmektedir.
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'Raporu Görüntüle')]"))).click()
+        
 
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)]) 
     def test_US11_TC1(self, email, password):
