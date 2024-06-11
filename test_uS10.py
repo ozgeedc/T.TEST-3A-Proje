@@ -9,7 +9,7 @@ class TestUS10KullaniciDegerlendirmeAlan:
     BASE_URL = "https://tobeto.com/giris"
     EMAIL = "ozgecam@outlook.com"
     PASSWORD = "ozge-cam-5595"
-    WAIT_TIME = 20
+    SECOND = 20
 
     def setup_method(self, method):
         self.driver = webdriver.Chrome()
@@ -21,25 +21,20 @@ class TestUS10KullaniciDegerlendirmeAlan:
 
     def login(self, email, password):
         # Giriş ekranı alanına gidiş methodu.
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-         # reCAPTCHA doğrulaması
-        # reCAPTCHA çerçevesinin içine geçiş yapılır
+        WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
+        WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+        
         iframe = WebDriverWait(self.driver, self.SECOND).until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe[src^='https://www.google.com/recaptcha']")))
         self.driver.switch_to.frame(iframe)
-
-        # reCAPTCHA onay kutusunu tıklama
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".recaptcha-checkbox-border"))).click()
-
-        # Ana çerçeveye geri dönme
         self.driver.switch_to.default_content()
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
 
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
 
     def degerlendirmeler(self):
         #Bu testler değerlendirmeler alanında gerçekleşmektedir. Bu sebeple  ayrı bir method oluşturulmuştur.
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Değerlendirmeler')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Değerlendirmeler')]"))).click()
 
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)])
     def test_uS10TC1(self, email, password):
@@ -53,7 +48,7 @@ class TestUS10KullaniciDegerlendirmeAlan:
         #Kullanıcı, değerlendirmeler alanından kişisel analiz raporlarını görüntüleyebilmelidir
         self.login(email, password)
         self.degerlendirmeler()
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Raporu Görüntüle')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Raporu Görüntüle')]"))).click()
         new_url = self.driver.current_url
         expected_url = "https://tobeto.com/profilim/degerlendirmeler/rapor/tobeto-iste-basari-modeli/1"
         assert new_url == expected_url, "Sayfa görüntülenemedi."
@@ -64,8 +59,8 @@ class TestUS10KullaniciDegerlendirmeAlan:
         self.login(email, password)
         self.degerlendirmeler()
         self.driver.execute_script("window.scrollTo(0, 400)")
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.XPATH, "//button[contains(.,'Raporu Görüntüle')]"))).click()
-        WebDriverWait(self.driver, self.WAIT_TIME).until(EC.element_to_be_clickable((By.XPATH, "//div[2]/div[2]/button"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.XPATH, "//button[contains(.,'Raporu Görüntüle')]"))).click()
+        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//div[2]/div[2]/button"))).click()
         #assert WebDriverWait(self.driver, self.WAIT_TIME).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='modal-body']/div[@class='quiz-screen']/div[@class='result-screen']/span[@class='result-title']"))).text == "Test Bitti", "Test tamamlanmadı."
 
 

@@ -6,7 +6,7 @@ class Test_api_post():
   def test_api_post(self):
     url = "http://localhost:60805/api/Auth/Register"
     headers ={"Content-Type":"application/json"} 
-    data = {"user": {"email":"Test3A/ozge.cam@outlook.com",
+    data = {"user": {"email":"3ATESTozge.cam@outlook.com",
                      "password":"Passw0rd!"},
                      "fistName":"Ozge",
                      "lastName":"CAM",
@@ -22,7 +22,7 @@ class Test_api_post():
         url = "http://localhost:60805/api/Auth/Login"  # API giriş URL'sini buraya ekleyin
         headers = {"Content-Type": "application/json"}
         data = {
-            "email": "Test3A/ozge.cam@outlook.com",
+            "email": "3ATESTozge.cam@outlook.com",
             "password": "Passw0rd!"
         }
         response = requests.post(url, data=json.dumps(data), headers=headers)
@@ -33,7 +33,7 @@ class Test_api_post():
   def test_kayiteposta_post(self):
     url = "http://localhost:60805/api/Auth/Register"
     headers ={"Content-Type":"application/json"} 
-    data = {"user": {"email":"Test3A/ozge.cam@outlook.com",
+    data = {"user": {"email":"3ATESTozge.cam@outlook.com",
                      "password":"Passw0rd!"},
                      "fistName":"Ozge",
                      "lastName":"CAM",
