@@ -37,7 +37,7 @@ class TestUS12():
         self.driver.switch_to.default_content()
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
 
-        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
+       
 
     def basla(self):
         button = WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.XPATH, "//button[contains(.,'Başla')]")))
