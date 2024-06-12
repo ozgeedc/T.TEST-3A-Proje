@@ -18,3 +18,9 @@ def check_load_time(page):
     pass 
      
 
+def assert_page_conditions(home_page, expected_load_time, alignment_element, link_element):
+    assert check_alignment(alignment_element), "UI elementleri yanlış hizalanmış."
+    assert check_link_functionality(link_element), "Link çalışmıyor."
+    assert check_load_time(home_page) <= expected_load_time, "Sayfa yükleme süresi çok uzun."
+
+

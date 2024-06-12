@@ -3,7 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+from selenium.webdriver.common.by import By
 from helpers import check_alignment, check_link_functionality, check_load_time
+import time
 
 class TestUS09():
     BASE_URL = "https://tobeto.com/giris"
@@ -21,29 +24,30 @@ class TestUS09():
     def teardown_method(self, method):
         self.driver.quit()
 
-    def test_alignment(self):
+    def alignment_method(self):
         assert check_alignment("//*[@id='__next']/div/div"), "UI elementleri yanlış hizalanmış."
 
-    def test_links(self):
+    def links_method(self):
         assert check_link_functionality("home_page_link"), "Link çalışmıyor."
 
-    def test_load_time(self):
+    def load_time_method(self):
         home_page = {"load_time": 1.5}  # Gerçek sayfa nesnesi
         assert check_load_time(home_page), "Sayfa yükleme süresi çok uzun."    
 
     @pytest.mark.parametrize("page, element, link, load_time", [
        ("home_page", "home_page_element", "home_page_link", 1.5),
         ("about_page", "about_page_element", "about_page_link", 1.8),])
-    def test_common_functionality(self, page, element, link, load_time):
+    def common_functionality_method(self, page, element, link, load_time):
         assert check_alignment(element), f"{page} elementleri yanlış hizalanmış."
         assert check_link_functionality(link), f"{page} link çalışmıyor."
         assert check_load_time({"load_time": load_time}), f"{page} yükleme süresi çok uzun."
+
+  
     
     #Giriş yap alanı , kod tekrarını azaltmak adına değişkenlere atanmıştır.zzzz
     def login(self, email, password):
         WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "email"))).send_keys(email)
         WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-        
         
         # I'm not robot ,Hello ! I'm pytest :) 
 
@@ -76,7 +80,7 @@ class TestUS09():
         print(f"TEST SONUCU: {expected_message == actual_message}")
         
     @pytest.mark.skip
-    @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)])
+    @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)]) # araştır
     def test_uS9TC3(self, email, password):
         #Kullanıcı, Profilim alanından sertifikalarını indirebilmelidir.
         self.login(email, password)
@@ -101,3 +105,5 @@ class TestUS09():
         WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Profilim')]"))).click()
         self.driver.execute_script("window.scrollTo(0,300)")
         assert WebDriverWait(self.driver, self.SECOND).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(.,'Tobeto İşte Başarı Modelim')]"))), "Tobeto İşte Başarı Modelim alanı görünmüyor."
+
+    
