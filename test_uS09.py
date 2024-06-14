@@ -63,17 +63,18 @@ class TestUS09():
         
     
     @allure.title("Kullanıcı, Profilim alanından sertifikalarını indirebilmelidir")   
-    @pytest.mark.skip
+   
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)]) # araştır
     def test_uS9TC3(self, email, password):
         
         self.login_Call(email, password)
-        WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, ".cursor-pointer:nth-child(1).>.d-flex"))).click()
+        #WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, ".cursor-pointer:nth-child(1).>.d-flex"))).click()
          # Sertifika indirme işlemini gerçekleştirin
-        download_button = WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'İndir')]")))
-        download_button.click()
+        download_button = WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable((By.XPATH, "//div[@id='__next']/div/main/div/div/div[2]/div/div[5]/div/div[2]/div/div/div")))
+        download_button.click() #element tıklanabilir değil hatası araştır.
       # İndirilen dosyanın mevcut olup olmadığını kontrol edin
-        downloaded_file_path = "/path/to/downloaded/file"  # İndirilen dosyanın yolu
+        downloaded_file_path = r"C:\Users\Busraa\Downloads"
+        # İndirilen dosyanın yolu
         assert os.path.exists(downloaded_file_path), "Certificate download failed"
 
 
@@ -90,7 +91,7 @@ class TestUS09():
     @allure.title("İşte Başarım, Analiz Raporu Görüntülenmelidir")
     @pytest.mark.parametrize("email, password", [(EMAIL, PASSWORD)])
     def test_uS9TC5(self, email, password):
-        self.login_Call_TEST(email, password)   
+        self.login_Call(email, password)   
         tobeto_model = WebDriverWait(self.driver, self.SECOND).until(EC.element_to_be_clickable(TOBETO_MODEL_LOCATOR))
         assert tobeto_model, "Tobeto İşte Başarı Modelim alanı görünmüyor."
 

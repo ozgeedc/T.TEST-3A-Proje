@@ -22,12 +22,13 @@ COPY_BUTTON_LOCATOR = (By.CSS_SELECTOR, ".ms-3")
 LINKEDIN_VIEW_LOCATOR = (By.CSS_SELECTOR, ".cv-linkedin")
 URL_COPY_TEXT = (By.CSS_SELECTOR, ".toast-body")
 PROFILE_URL = "https://tobeto.com/profilim"
-#LINKEDIN_URL ="https://www.linkedin.com/in/ozgeedc1610"
+TEST_BITTI = (By.CSS_SELECTOR,"body > div.fade.modal.show > div > div > div > div > div > span")
 
 # Test sonuçları ve rapor görüntüleme locatorları
-REPORT_VIEW_LOCATOR = (By.XPATH, "//a[contains(text(),'Değerlendirmeler')]")
+DEGERLENDIRME = (By.XPATH, "//a[contains(text(),'Değerlendirmeler')]")
 VIEW_REPORT_LOCATOR = (By.XPATH, "//a[contains(text(),'Raporu Görüntüle')]")
-FRONT_REPORT_LOCATOR = (By.XPATH, "//div[2]/div[2]/button")
+FRONT_REPORT_ONE=(By.XPATH, "//button[contains(.,'Raporu Görüntüle')]")
+FRONT_REPORT_TWO = (By.XPATH, "//div[2]/div[2]/button")
 TOBETO_MODEL_LOCATOR = (By.XPATH, "//span[contains(.,'Tobeto İşte Başarı Modelim')]")
 
 # Nitelik ve diğer alanlar için locatorlar
