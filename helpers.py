@@ -1,10 +1,20 @@
+import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
     
 
-
+def test_yuk(self):
+        # Basit bir yük test örneği
+        start_time = time.time()
+        for _ in range(100):
+            self.login(self.EMAIL, self.PASSWORD)
+            self.degerlendirmeler()
+            self.driver.back()
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        assert elapsed_time < 30, "Yük testi başarısız oldu! Geçen süre: {} saniye".format(elapsed_time)
 
 def check_404_errors(driver):
     # Mevcut sayfada herhangi bir 404 hatası olup olmadığını kontrol eder
