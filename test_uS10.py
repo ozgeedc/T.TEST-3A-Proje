@@ -14,12 +14,12 @@ class TestUS10:
     PASSWORD = "ozge-cam-5595"
     SECOND = 20
 
-    def setup_method(self, method):
+    def setUP(self, method):
         self.driver = webdriver.Chrome()
         self.driver.get(BASE_URL)
         self.driver.maximize_window()
     
-    def teardown_method(self, method):
+    def tearDown(self, method):
         self.driver.quit()
 
     def login_Call(self, email, password):

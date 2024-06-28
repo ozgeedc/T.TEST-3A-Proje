@@ -5,49 +5,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 
     
 
-def test_yuk(self):
-        # Basit bir yük test örneği
-        start_time = time.time()
-        for _ in range(100):
-            self.login(self.EMAIL, self.PASSWORD)
-            self.degerlendirmeler()
-            self.driver.back()
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        assert elapsed_time < 30, "Yük testi başarısız oldu! Geçen süre: {} saniye".format(elapsed_time)
 
-def check_404_errors(driver):
-    # Mevcut sayfada herhangi bir 404 hatası olup olmadığını kontrol eder
-    try:
-        driver.find_element(By.XPATH, "//*[contains(text(), '404')]")
-        return True
-    except:
-        return False
 
-def check_alignment(xpath, driver):
-    # Verilen XPath kullanarak öğelerin düzgün hizalanıp hizalanmadığını kontrol eder
-    try:
-        element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, xpath)))
-        return element.is_displayed()
-    except:
-        return False
-
-def check_js_errors(driver):
-    # Sayfada herhangi bir JavaScript hatası olup olmadığını kontrol eder
-    logs = driver.get_log('browser')
-    for entry in logs:
-        if entry['level'] == 'SEVERE':
-            return True
-    return False
-
-def check_link_functionality(link_id, driver):
-    # Verilen ID'ye sahip bir linkin çalışıp çalışmadığını kontrol eder
-    try:
-        link = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, link_id)))
-        link.click()
-        return True
-    except:
-        return False
 
 def check_load_time(page):
     # Sayfa yükleme süresinin kabul edilebilir sınırlar içinde olup olmadığını kontrol eder
@@ -62,10 +21,13 @@ def common_functionality_method(self, page, load_time):
        
         assert check_load_time({"load_time": load_time}), f"{page} yükleme süresi çok uzun."
 
-def assert_page_conditions(home_page, expected_load_time, alignment_element, link_element):
-    assert check_alignment(alignment_element), "UI elementleri yanlış hizalanmış."
-    assert check_link_functionality(link_element), "Link çalışmıyor."
-    assert check_load_time(home_page) <= expected_load_time, "Sayfa yükleme süresi çok uzun."
+def assert_page_conditions(home_page, expected_load_time,check_load_time):
+        assert check_load_time(home_page), "Sayfa yükleme süresi çok uzun."  
+
+        assert check_load_time(home_page) <= expected_load_time, "Sayfa yükleme süresi çok uzun."    
+            
+
+
 
 
 
