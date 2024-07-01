@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 BASE_URL = "https://tobeto.com/giris"
 DASHBOARD_URL = "https://tobeto.com/profilim"
 #EMAIL = "ozgecam@outlook.com"
-#PASSWORD = "ozge-cam-5595"
+#PASSWORD = "ozgecam-pair2"
 SECOND = 10
 # Locatorlar
 EMAIL_NAME = (By.NAME, "email")

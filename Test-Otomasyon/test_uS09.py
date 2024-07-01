@@ -14,7 +14,7 @@ from selenium.webdriver.common.by import By
 class TestUS09():
     
     EMAIL = "ozgecam@outlook.com"
-    PASSWORD = "ozge-cam-5595"
+    PASSWORD = "ozgecam-pair2"
     SECOND = 15
 
     #Bu kısımda kod en başta bu kısma uğradığından bir metoda atanmış olup Tobeto Linki çağırılmıştır.

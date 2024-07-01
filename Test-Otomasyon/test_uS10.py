@@ -11,7 +11,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class TestUS10:
     
     EMAIL = "ozgecam@outlook.com"
-    PASSWORD = "ozge-cam-5595"
+    PASSWORD = "ozgecam-pair2"
     SECOND = 20
 
     def setUP(self, method):

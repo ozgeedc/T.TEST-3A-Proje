@@ -12,7 +12,7 @@ class TestUS12():
     #Sabit Değerler
     BASE_URL = "https://tobeto.com/giris"
     EMAİL ="ozgecam@outlook.com"
-    PASSWORD ="ozge-cam-5595"
+    PASSWORD ="ozgecam-pair2"
     SECOND = 45
 
     def setUp(self,method):
