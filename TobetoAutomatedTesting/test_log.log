@@ -1,0 +1,126 @@
+2024-06-30 12:55:00,024 - INFO - ====== WebDriver manager ======
+2024-06-30 12:55:03,425 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:03,469 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:03,514 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:55:07,909 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:55:08,169 - INFO - E-posta ve þifre girildi.
+2024-06-30 12:55:08,170 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-06-30 12:55:18,780 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-06-30 12:55:19,906 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-06-30 12:55:19,959 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-06-30 12:55:21,970 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-06-30 12:55:24,162 - INFO - ====== WebDriver manager ======
+2024-06-30 12:55:27,561 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:27,615 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:27,655 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:55:31,069 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:55:31,074 - ERROR - Test failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.127)
+Stacktrace:
+	GetHandleVerifier [0x0121C1C3+27395]
+	(No symbol) [0x011B3DC4]
+	(No symbol) [0x010B1B7F]
+	(No symbol) [0x0108E483]
+	(No symbol) [0x0111A06F]
+	(No symbol) [0x0112C3D6]
+	(No symbol) [0x01113736]
+	(No symbol) [0x010E7541]
+	(No symbol) [0x010E80BD]
+	GetHandleVerifier [0x014D3A93+2876371]
+	GetHandleVerifier [0x01527F5D+3221661]
+	GetHandleVerifier [0x0129D634+556916]
+	GetHandleVerifier [0x012A474C+585868]
+	(No symbol) [0x011BCE04]
+	(No symbol) [0x011B9818]
+	(No symbol) [0x011B99B7]
+	(No symbol) [0x011ABF0E]
+	BaseThreadInitThunk [0x75517BA9+25]
+	RtlInitializeExceptionChain [0x7790C10B+107]
+	RtlClearBits [0x7790C08F+191]
+
+2024-06-30 12:55:31,074 - ERROR - Test failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.127)
+Stacktrace:
+	GetHandleVerifier [0x0121C1C3+27395]
+	(No symbol) [0x011B3DC4]
+	(No symbol) [0x010B1B7F]
+	(No symbol) [0x0108E483]
+	(No symbol) [0x0111A06F]
+	(No symbol) [0x0112C3D6]
+	(No symbol) [0x01113736]
+	(No symbol) [0x010E7541]
+	(No symbol) [0x010E80BD]
+	GetHandleVerifier [0x014D3A93+2876371]
+	GetHandleVerifier [0x01527F5D+3221661]
+	GetHandleVerifier [0x0129D634+556916]
+	GetHandleVerifier [0x012A474C+585868]
+	(No symbol) [0x011BCE04]
+	(No symbol) [0x011B9818]
+	(No symbol) [0x011B99B7]
+	(No symbol) [0x011ABF0E]
+	BaseThreadInitThunk [0x75517BA9+25]
+	RtlInitializeExceptionChain [0x7790C10B+107]
+	RtlClearBits [0x7790C08F+191]
+
+2024-06-30 12:55:33,296 - INFO - ====== WebDriver manager ======
+2024-06-30 12:55:36,752 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:36,792 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:36,831 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:55:40,101 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:55:40,108 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:55:40,108 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:55:42,225 - INFO - ====== WebDriver manager ======
+2024-06-30 12:55:45,674 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:45,717 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:45,755 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:55:47,481 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:55:47,492 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:55:47,493 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:55:49,635 - INFO - ====== WebDriver manager ======
+2024-06-30 12:55:53,000 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:53,082 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:55:53,164 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:55:54,745 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:55:54,755 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:55:54,755 - ERROR - Test failed: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:56:09,975 - INFO - ====== WebDriver manager ======
+2024-06-30 12:56:13,370 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:13,412 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:13,450 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:56:16,661 - INFO - ====== WebDriver manager ======
+2024-06-30 12:56:20,412 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:20,456 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:20,494 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:56:22,302 - ERROR - Error during login: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:56:24,470 - INFO - ====== WebDriver manager ======
+2024-06-30 12:56:27,799 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:27,838 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:27,877 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:56:29,859 - ERROR - Error during login: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:56:32,017 - INFO - ====== WebDriver manager ======
+2024-06-30 12:56:35,429 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:35,472 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:35,510 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:56:37,235 - ERROR - Error during login: 'NoneType' object has no attribute 'is_displayed'
+2024-06-30 12:56:39,381 - INFO - ====== WebDriver manager ======
+2024-06-30 12:56:42,815 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:42,855 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:56:42,895 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:56:47,277 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:56:47,552 - INFO - E-posta ve þifre girildi.
+2024-06-30 12:56:47,552 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-06-30 12:56:58,223 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-06-30 12:57:01,009 - INFO - ====== WebDriver manager ======
+2024-06-30 12:57:04,432 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:57:04,473 - INFO - Get LATEST chromedriver version for google-chrome
+2024-06-30 12:57:04,514 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-06-30 12:57:08,919 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-06-30 12:57:09,213 - INFO - E-posta ve þifre girildi.
+2024-06-30 12:57:09,213 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-06-30 12:57:19,849 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-06-30 12:57:21,006 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-06-30 12:57:23,008 - INFO - Ýlk dokuz duyuru ve haberin görüntülendiði kontrol ediliyor.
+2024-06-30 12:57:23,019 - ERROR - Beklenen duyuru sayýsý bulunamadý. Bulunan duyuru sayýsý: 1
+2024-06-30 12:57:23,019 - INFO - Filtreleme alanlarýnýn ve okunmuþ olanlarý gizleme butonunun kontrolü yapýlýyor.
