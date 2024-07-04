@@ -1,0 +1,252 @@
+2024-07-03 14:57:35,730 - INFO - ====== WebDriver manager ======
+2024-07-03 14:57:41,477 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:57:41,564 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:57:41,610 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:57:41,713 - INFO - WebDriver version 126.0.6478.126 selected
+2024-07-03 14:57:41,715 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/win32/chromedriver-win32.zip
+2024-07-03 14:57:41,715 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/win32/chromedriver-win32.zip
+2024-07-03 14:57:41,819 - INFO - Driver downloading response is 200
+2024-07-03 14:57:42,021 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:57:42,172 - INFO - Driver has been saved in cache [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126]
+2024-07-03 14:57:46,885 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:57:50,012 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:57:52,944 - INFO - Tüm eðitim durumu checkbox'larý iþaretlendi.
+2024-07-03 14:57:57,129 - INFO - ====== WebDriver manager ======
+2024-07-03 14:58:00,456 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:00,503 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:00,545 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:58:05,926 - INFO - ====== WebDriver manager ======
+2024-07-03 14:58:09,274 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:09,319 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:09,362 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:58:14,374 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:58:17,468 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:58:20,423 - INFO - Tüm eðitim durumu checkbox'larý iþaretlendi.
+2024-07-03 14:58:26,112 - INFO - 42 filtrelenmiþ eðitim baþarýyla görüntülendi.
+2024-07-03 14:58:28,273 - INFO - ====== WebDriver manager ======
+2024-07-03 14:58:31,835 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:31,881 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:31,922 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:58:36,272 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:58:39,361 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:58:42,279 - INFO - Tüm eðitim durumu checkbox'larý iþaretlendi.
+2024-07-03 14:58:46,750 - INFO - ====== WebDriver manager ======
+2024-07-03 14:58:50,148 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:50,188 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:58:50,228 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:58:54,766 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:58:57,856 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:59:00,762 - INFO - Tüm eðitim durumu checkbox'larý iþaretlendi.
+2024-07-03 14:59:07,358 - INFO - ====== WebDriver manager ======
+2024-07-03 14:59:10,703 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:10,744 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:10,782 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:59:15,135 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:59:18,225 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:59:18,900 - INFO - Bugün butonuna týklandý.
+2024-07-03 14:59:20,915 - INFO - Güncel aydaki eðitimler baþarýyla görüntülendi.
+2024-07-03 14:59:21,026 - INFO - Sað yönlendirme butonuna týklandý.
+2024-07-03 14:59:23,037 - INFO - Sonraki aydaki eðitimler baþarýyla görüntülendi.
+2024-07-03 14:59:25,115 - INFO - Ay butonuna týklandý.
+2024-07-03 14:59:27,125 - INFO - Seçilen aydaki eðitimler baþarýyla görüntülendi.
+2024-07-03 14:59:27,263 - INFO - Hafta butonuna týklandý.
+2024-07-03 14:59:29,277 - INFO - Seçilen haftadaki eðitimler baþarýyla görüntülendi.
+2024-07-03 14:59:29,349 - INFO - Gün butonuna týklandý.
+2024-07-03 14:59:31,358 - INFO - Seçilen gündeki eðitimler baþarýyla görüntülendi.
+2024-07-03 14:59:33,519 - INFO - ====== WebDriver manager ======
+2024-07-03 14:59:36,858 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:36,905 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:36,946 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:59:41,286 - INFO - Tobeto giriþ sayfasýna girildi.
+2024-07-03 14:59:44,383 - INFO - Takvim simgesine týklandý.
+2024-07-03 14:59:45,237 - INFO - Kapatma simgesine týklandý.
+2024-07-03 14:59:45,288 - INFO - Takvim baþarýyla kapatýldý, simge haline geldi.
+2024-07-03 14:59:47,465 - INFO - ====== WebDriver manager ======
+2024-07-03 14:59:50,847 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:50,890 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:50,931 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 14:59:54,175 - INFO - ====== WebDriver manager ======
+2024-07-03 14:59:57,538 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:57,578 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 14:59:57,619 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:00:02,214 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:00:14,075 - INFO - Giriþ baþarýlý
+2024-07-03 15:00:14,081 - INFO - Baþvurularým bölümü doðrulandý
+2024-07-03 15:00:14,745 - INFO - Dersler doðrulandý
+2024-07-03 15:00:14,781 - INFO - Belirli bir derse yönlendirildi
+2024-07-03 15:00:15,464 - INFO - Ana menüye gidildi
+2024-07-03 15:00:16,675 - INFO - Bildirimlere týklandý
+2024-07-03 15:00:17,981 - INFO - Anket sekmesi doðrulandý
+2024-07-03 15:00:20,163 - INFO - ====== WebDriver manager ======
+2024-07-03 15:00:23,580 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:00:23,632 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:00:23,675 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:00:28,368 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:00:39,491 - INFO - Giriþ baþarýlý
+2024-07-03 15:00:39,491 - INFO - Giriþ baþarýlý
+2024-07-03 15:00:39,530 - INFO - Belirli bir bölüme gidildi
+2024-07-03 15:00:40,116 - INFO - Rapor görüntülendi
+2024-07-03 15:00:40,129 - INFO - 'Doðru' elements doðrulandý
+2024-07-03 15:00:40,139 - INFO - 'Yanlýþ' elements doðrulandý
+2024-07-03 15:00:40,151 - INFO - 'Boþ' elements doðrulandý
+2024-07-03 15:00:40,162 - INFO - 'Puan' elements doðrulandý
+2024-07-03 15:00:40,220 - INFO - Rapor kapatýldý
+2024-07-03 15:00:42,375 - INFO - ====== WebDriver manager ======
+2024-07-03 15:00:45,737 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:00:45,782 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:00:45,824 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:00:50,430 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:01:01,572 - INFO - Giriþ baþarýlý
+2024-07-03 15:01:01,572 - INFO - Giriþ baþarýlý
+2024-07-03 15:01:01,577 - INFO - Sayfa sonuna kaydýrýldý
+2024-07-03 15:01:04,646 - INFO - Ýlk butona týklandý
+2024-07-03 15:01:04,766 - INFO - Ýlk bölümde elemanlar bulundu
+2024-07-03 15:01:04,907 - INFO - Ýlk navigasyon linkine týklandý
+2024-07-03 15:01:04,951 - INFO - Sayfa sonuna kaydýrýldý
+2024-07-03 15:01:05,013 - INFO - Ýkinci butona týklandý
+2024-07-03 15:01:05,075 - INFO - Ýkinci bölümde elemanlar bulundu
+2024-07-03 15:01:05,131 - INFO - Ana sayfa linkine týklandý
+2024-07-03 15:01:05,185 - INFO - Sayfa sonuna kaydýrýldý
+2024-07-03 15:01:05,244 - INFO - Üçüncü butona týklandý
+2024-07-03 15:01:05,321 - INFO - Eðitim sekmesi bulundu
+2024-07-03 15:01:07,506 - INFO - ====== WebDriver manager ======
+2024-07-03 15:01:10,907 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:01:10,962 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:01:11,003 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:01:15,274 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:01:15,634 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:01:15,635 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:01:26,244 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:01:26,860 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-07-03 15:01:26,899 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:01:28,910 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-07-03 15:01:31,068 - INFO - ====== WebDriver manager ======
+2024-07-03 15:01:34,394 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:01:34,434 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:01:34,481 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:01:38,890 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:01:39,138 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:01:39,138 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:01:49,755 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:01:50,925 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-07-03 15:01:50,965 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:01:52,980 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-07-03 15:01:53,038 - INFO - Eðitim seçildi: Dr.Ecmel Ayral’dan Hoþgeldin Mesajý
+2024-07-03 15:02:00,586 - ERROR - Test failed: Message: element click intercepted: Element <span class="add-favorite"></span> is not clickable at point (1560, 80). Other element would receive the click: <div class="growl-container show top-right">...</div>
+  (Session info: chrome=126.0.6478.127)
+Stacktrace:
+	GetHandleVerifier [0x005EC1C3+27395]
+	(No symbol) [0x00583DC4]
+	(No symbol) [0x00481B7F]
+	(No symbol) [0x004C8C22]
+	(No symbol) [0x004C6FA8]
+	(No symbol) [0x004C4E2B]
+	(No symbol) [0x004C43D7]
+	(No symbol) [0x004B918F]
+	(No symbol) [0x004E399C]
+	(No symbol) [0x004B8C15]
+	(No symbol) [0x004E3C34]
+	(No symbol) [0x004FCB24]
+	(No symbol) [0x004E3736]
+	(No symbol) [0x004B7541]
+	(No symbol) [0x004B80BD]
+	GetHandleVerifier [0x008A3A93+2876371]
+	GetHandleVerifier [0x008F7F5D+3221661]
+	GetHandleVerifier [0x0066D634+556916]
+	GetHandleVerifier [0x0067474C+585868]
+	(No symbol) [0x0058CE04]
+	(No symbol) [0x00589818]
+	(No symbol) [0x005899B7]
+	(No symbol) [0x0057BF0E]
+	BaseThreadInitThunk [0x77347BA9+25]
+	RtlInitializeExceptionChain [0x7763C10B+107]
+	RtlClearBits [0x7763C08F+191]
+
+2024-07-03 15:02:02,810 - INFO - ====== WebDriver manager ======
+2024-07-03 15:02:06,228 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:06,275 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:06,316 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:02:10,691 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:02:10,939 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:02:10,939 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:02:21,561 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:02:22,687 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-07-03 15:02:22,733 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:02:24,744 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-07-03 15:02:24,779 - INFO - Eðitim seçildi: Softskill: Ýletiþim Becerileri
+2024-07-03 15:02:28,643 - ERROR - Test failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.127)
+Stacktrace:
+	GetHandleVerifier [0x005EC1C3+27395]
+	(No symbol) [0x00583DC4]
+	(No symbol) [0x00481B7F]
+	(No symbol) [0x0045E483]
+	(No symbol) [0x004EA06F]
+	(No symbol) [0x004FC3D6]
+	(No symbol) [0x004E3736]
+	(No symbol) [0x004B7541]
+	(No symbol) [0x004B80BD]
+	GetHandleVerifier [0x008A3A93+2876371]
+	GetHandleVerifier [0x008F7F5D+3221661]
+	GetHandleVerifier [0x0066D634+556916]
+	GetHandleVerifier [0x0067474C+585868]
+	(No symbol) [0x0058CE04]
+	(No symbol) [0x00589818]
+	(No symbol) [0x005899B7]
+	(No symbol) [0x0057BF0E]
+	BaseThreadInitThunk [0x77347BA9+25]
+	RtlInitializeExceptionChain [0x7763C10B+107]
+	RtlClearBits [0x7763C08F+191]
+
+2024-07-03 15:02:30,776 - INFO - ====== WebDriver manager ======
+2024-07-03 15:02:34,130 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:34,171 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:34,213 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:02:39,135 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:02:39,460 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:02:39,460 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:02:50,098 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:02:50,709 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-07-03 15:02:50,748 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:02:52,759 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-07-03 15:02:52,819 - INFO - Arama kutucuðuna týklandý
+2024-07-03 15:02:53,503 - INFO - Arama sonucu doðru eðitim bulundu: Dr.Ecmel Ayral’dan Hoþgeldin Mesajý
+2024-07-03 15:02:53,627 - INFO - Arama sonucu doðru kurum bulundu: Ýstanbul Kodluyor
+2024-07-03 15:02:55,808 - INFO - ====== WebDriver manager ======
+2024-07-03 15:02:59,165 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:59,211 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:02:59,250 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:03:03,861 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:03:04,118 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:03:04,118 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:03:23,082 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:03:24,211 - INFO - Eðitimlerim panelinde en fazla 4 eðitim görüntüleniyor.
+2024-07-03 15:03:24,250 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:03:26,260 - INFO - Kullanýcý kendisine tanýmlanan bütün eðitimleri görüntüleyebiliyor.
+2024-07-03 15:03:26,327 - INFO - Sýralama kutusuna týklandý
+2024-07-03 15:03:28,880 - INFO - ====== WebDriver manager ======
+2024-07-03 15:03:32,249 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:03:32,294 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:03:32,338 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:03:39,034 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:03:39,298 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:03:39,299 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:03:49,919 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:03:52,679 - INFO - ====== WebDriver manager ======
+2024-07-03 15:03:56,017 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:03:56,057 - INFO - Get LATEST chromedriver version for google-chrome
+2024-07-03 15:03:56,099 - INFO - Driver [C:\Users\Ömer Vardar\.wdm\drivers\chromedriver\win64\126.0.6478.126\chromedriver-win32/chromedriver.exe] found in cache
+2024-07-03 15:04:00,401 - INFO - Tobeto anasayfasýna giriþ yapýldý.
+2024-07-03 15:04:00,688 - INFO - E-posta ve þifre girildi.
+2024-07-03 15:04:00,688 - INFO - Lütfen 'Ben robot deðilim' alanýný geçin.
+2024-07-03 15:04:11,847 - INFO - Giriþ yapýldý ve platform sayfasýna yönlendirildi.
+2024-07-03 15:04:12,587 - INFO - Daha Fazla Göster butonuna týklandý.
+2024-07-03 15:04:14,588 - INFO - Ýlk dokuz duyuru ve haberin görüntülendiði kontrol ediliyor.
+2024-07-03 15:04:16,606 - INFO - 9 duyuru baþarýyla yüklendi.
+2024-07-03 15:04:16,606 - INFO - Filtreleme alanlarýnýn ve okunmuþ olanlarý gizleme butonunun kontrolü yapýlýyor.
+2024-07-03 15:04:16,655 - INFO - Pagination butonunun kontrolü yapýlýyor.
+2024-07-03 15:04:16,665 - INFO - Arama motoru kýsmýna duyuru adý yazýlýyor.
+2024-07-03 15:04:16,738 - INFO - Girilen karakterler doðrultusunda duyuru ve haberlerin filtrelendiði kontrol ediliyor.
+2024-07-03 15:04:18,768 - INFO - Filtreleme kýsmýnda 'Tür' seçeneði duyuru veya haber checkbox'ýnýn seçimi yapýlýyor.
+2024-07-03 15:04:18,876 - INFO - Filtreleme iþlemi sonucunda duyurularýn görüntülendiði kontrol ediliyor.
